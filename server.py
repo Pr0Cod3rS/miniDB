@@ -1,7 +1,7 @@
 import socket
 import threading
-from database import Database
 import pickle
+from database import Database
 
 #server's network configuration
 host = "127.0.0.1"
@@ -18,7 +18,7 @@ try:
     server.listen(5)
     #print server's status
     print("[*] Server is listening on %s:%d..." % (host, port))
-    #load database
+    #create db if it doesn't exist,else load the db
     db = Database("smdb", load=True)
 except Exception as e:
     client.send(str(e).encode())
